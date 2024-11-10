@@ -35,3 +35,38 @@ Mini (2009)
 
 Sold Car Mini (2009) for $5555.55
 ```
+
+This is used for application state saving and loading to/from file. They can be used like so:
+```
+>>> add_vehicle(Car, "Mini", 2009, 240000 km)
+Added Car Mini (2009)
+>>> add_vehicle(Car, "Audi", 2008, 320000 km)
+Added Car Audi (2008)
+>>> save
+State saved successfully
+```
+Then we can inspect the 'state.txt' file, where we will see
+```
+BEGIN
+add_vehicle(Car, "Audi", 2008, 320000 km);
+add_vehicle(Car, "Mini", 2009, 240000 km);
+END
+```
+these commands are similar to what we have using batch proccessing, we can modify the file and later load it in our program.
+```
+>>> view()
+Vehicles:
+
+Inventory:
+
+>>> load
+Added Car Audi (2008)
+Added Car Mini (2009)
+>>> view()
+Vehicles:
+Car Mini (2009)
+Car Audi (2008)
+
+Inventory:
+2 Car
+```
